@@ -1,6 +1,16 @@
 const { environment } = require('@rails/webpacker')
-
+const sassLoader = require('sass-loader');
+const cssLoader = require('css-loader');
 const path = require('path')
+
+environment.loaders.append('sass', {
+  test: /\.scss$/,
+  use: [
+    'style-loader',
+    cssLoader,
+    sassLoader
+  ]
+});
 
 const customConfig = {
   resolve: {
